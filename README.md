@@ -1,6 +1,6 @@
 # vsdsquadron
 This repo is intended to document the weekly progress
-TASK 1  
+TASK 1 
 
 1.install Yosys
 
@@ -37,3 +37,5 @@ INSTALLING YOSYS, IVERILOG & GTKWAVE
 
 ![IMG_7968](https://github.com/nithishym/vsdsquadron/assets/160588484/12b9896d-4433-4765-b77c-11263a5cf461)
 
+TASK 2
+![WhatsApp Image 2024-02-23 at 11 33 31 AM (1)](https://github.com/nithishym/vsdsquadron/assets/160588484/4cd08ff3-7397-46ac-80b7-2c86bdebd744)
