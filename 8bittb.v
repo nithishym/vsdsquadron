@@ -23,6 +23,7 @@ module bcd_counter_tb;
     if (reset == 1'b0) begin
       // Print the current count value in BCD format
       $display("Count: %b (%0d)", count, count);
+      #1000 $finish;
     end
   end
 initial begin 
