@@ -47,9 +47,34 @@ TASK 2
 TASK 3
 
 
+
+*Cloning my github repositories:*    
+```git clone https://github.com/nithishym/vsdsquadron.git```
+
+
 ![WhatsApp Image 2024-03-13 at 10 12 31 PM](https://github.com/nithishym/vsdsquadron/assets/160588484/cdcc580d-6179-48f9-8e0f-18fb8e0a0710)
 
+*Simulating iverilog by taking files from the folder verilog_code* 
+```cd vsdsquadron```
+
+```iverilog bcd_counter.v bcd_counter_tb.v```
+
+
+*Generating dump_file*
+
+```./a.out```
+
+
+*To get I/O waveform*
+
+```gtkwave wave.vcd```
+
 ![WhatsApp Image 2024-03-13 at 10 13 08 PM](https://github.com/nithishym/vsdsquadron/assets/160588484/4736f61a-8ffc-43e6-bf72-12fa17fc4544)
+
+
+### Wave Forms:
+###  *Input and Output waveform*
+
 
 ![WhatsApp Image 2024-03-13 at 10 16 06 PM (1)](https://github.com/nithishym/vsdsquadron/assets/160588484/c9aacf62-13df-4e22-8c3a-0a7195fe1ab1)
 
@@ -73,18 +98,93 @@ TASK 4
 
 
 
-TASK 5
+###TASK 5
+
+
+
+
+*Design file after git clone*
+
+*We are checking gtkwave for the design*
+
+```iverilog iiitb_bcdc.v iiitb_bcdc_tb.v```
+
+```./a.out ```
+
+``` gtkwave iiitb_bcdc.vcd```
+
+
+
+
+
+
+### To generate netlist:
+
+*Invoking yosys inside verilog_code file:* 
+
+```yosys```
+
+*Reading the Library:* 
+
+```read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+
+*Reading the Design:*    
+
+```read_verilog iiitb_bcdc.v```
+
+
+*Specifying the module that we are synthesizing:*    
+
+```synth -top iiitb_bcdc```
+
 
 ![first](https://github.com/nithishym/vsdsquadron/assets/160588484/b177cfd5-16a2-4224-a43f-23d16381159e)
 
+
+
+*To generate the netlist:*    
+
+```abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+
 ![secong](https://github.com/nithishym/vsdsquadron/assets/160588484/d5b4d711-ad59-49e3-a19f-cd76ab2e9e70)
+
+
+
+*To see the graphical version of the logic:*    
+
+```show```
+
 
 ![3](https://github.com/nithishym/vsdsquadron/assets/160588484/c1d88d88-8c2d-40bd-8759-1cce3facc214)
 
 
 ![4](https://github.com/nithishym/vsdsquadron/assets/160588484/c00188ea-11d3-4055-a81e-ef12c6398ac6)
 
+
+*To write the netlist:*    
+
+```write_verilog netlist.v```
+
+*Using the switch '-noattr' to get the simplified version of netlist file:*
+
+```write_verilog -noattr netlist.v```
+
+```show```
+*To open the netlist:*    
+
+```!gvim netlist.v``
+
+
+
 ![5](https://github.com/nithishym/vsdsquadron/assets/160588484/e38f6539-c720-4c02-bf44-cd0c01e6707a)
+
+
+
+##Opening the Netlist File
+
+
 
 ![6](https://github.com/nithishym/vsdsquadron/assets/160588484/171190ad-d3fe-4ff0-9da2-c03bd2ac24c6)
 
@@ -95,6 +195,19 @@ TASK 5
 ![9](https://github.com/nithishym/vsdsquadron/assets/160588484/d145a17d-4919-4048-8764-12a5e2831e07)
 
 ![10](https://github.com/nithishym/vsdsquadron/assets/160588484/200c482d-7acd-442b-9527-c3fe5a7519cb)
+
+
+
+
+## GATE LEVEL SIMULATION TO RUN THE NETLIST
+
+```iverilog primitives.v sky.v netlist.v iiitb_bcdc_tb.v```
+
+```./a.out```
+
+```gtkwave iiitb_bcdc.vcd```
+
+
 
 ![WhatsApp Image 2024-03-13 at 11 11 21 PM](https://github.com/nithishym/vsdsquadron/assets/160588484/061b7f48-1d51-4382-819c-ce84e6432e99)
 
