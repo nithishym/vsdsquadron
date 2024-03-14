@@ -1,6 +1,6 @@
 # vsdsquadron
-This repo is intended to document the weekly progress
-TASK 1 
+### This repo is intended to document the weekly progress
+# TASK 1 
 
 1.install Yosys
 
@@ -38,13 +38,13 @@ INSTALLING YOSYS, IVERILOG & GTKWAVE
 ![IMG_7968](https://github.com/nithishym/vsdsquadron/assets/160588484/12b9896d-4433-4765-b77c-11263a5cf461)
 
 
-TASK 2
+# TASK 2
 
 
 ![WhatsApp Image 2024-02-23 at 11 33 31 AM (1)](https://github.com/nithishym/vsdsquadron/assets/160588484/4cd08ff3-7397-46ac-80b7-2c86bdebd744)
 
 
-TASK 3
+# TASK 3
 
 
 
@@ -79,17 +79,73 @@ TASK 3
 ![WhatsApp Image 2024-03-13 at 10 16 06 PM (1)](https://github.com/nithishym/vsdsquadron/assets/160588484/c9aacf62-13df-4e22-8c3a-0a7195fe1ab1)
 
 
-TASK 4
+# TASK 4
 
-![WhatsApp Image 2024-03-13 at 10 27 41 PM](https://github.com/nithishym/vsdsquadron/assets/160588484/1617f8a4-0322-479e-a65e-7672e4a003a0)
+### To generate netlist:
+
+*Invoking yosys inside verilog_code file:* 
+
+```yosys```
+
+*Reading the Library:* 
+
+```read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+
+*Reading the Design:*    
+
+```read_verilog bcd_counter.v```
+
+
+*Specifying the module that we are synthesizing:*    
+
+```synth -top bcd_counter```
+
 
 ![WhatsApp Image 2024-03-13 at 10 27 41 PM (1)](https://github.com/nithishym/vsdsquadron/assets/160588484/c3db5c0e-39e2-40d7-978a-772b7c9b9e1b)
 
+
+*To generate the netlist:*    
+
+```abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+
 ![WhatsApp Image 2024-03-13 at 10 27 42 PM](https://github.com/nithishym/vsdsquadron/assets/160588484/9563c9ab-a553-443f-b222-84dbc0dce0e5)
+
+*To see the graphical version of the logic:*    
+
+```show```
+
 
 ![WhatsApp Image 2024-03-13 at 10 27 42 PM (1)](https://github.com/nithishym/vsdsquadron/assets/160588484/7615e86d-007b-427b-8e47-567adc932235)
 
+*To write the netlist:*    
+
+```write_verilog bcd_netlist.v```
+
+*Using the switch '-noattr' to get the simplified version of netlist file:*
+
+```write_verilog -noattr bcd_netlist.v```
+
+```show```
+*To open the netlist:*    
+
+```!gvim bcd_netlist.v```
+
+
+
 ![WhatsApp Image 2024-03-13 at 10 27 42 PM (2)](https://github.com/nithishym/vsdsquadron/assets/160588484/61dd1d87-96a5-4e80-bd6a-0bd0737e21bd)
+
+## GATE LEVEL SIMULATION TO RUN THE NETLIST
+
+
+```iverilog primitives.v sky.v bcd_netlist.v tb_bcd_counter.v```
+
+```./a.out```
+
+```gtkwave wave.vcd```
+
+
 
 ![WhatsApp Image 2024-03-13 at 11 28 16 PM](https://github.com/nithishym/vsdsquadron/assets/160588484/1428658b-3e21-48dc-87f2-627b7e42ecb6)
 
@@ -98,7 +154,7 @@ TASK 4
 
 
 
-###TASK 5
+# TASK 5
 
 
 
